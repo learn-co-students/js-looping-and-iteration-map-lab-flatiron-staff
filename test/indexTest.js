@@ -50,16 +50,7 @@ describe('index.js', () => {
 
   describe('nameToAttributes()', () => {
     after(() => {
-      Array.prototype.map.restore();
-    });
-
-    it('uses the Array map method', () => {
-      let spy = sinon.spy(Array.prototype, 'map');
-      nameToAttributes(drivers);
-      expect(
-        spy.calledOnce,
-        'map was not called in nameToAttributes()'
-      ).to.equal(true);
+      // Array.prototype.map.restore();
     });
 
     it('returns list of objects with appropriate first and last names', () => {
@@ -71,6 +62,17 @@ describe('index.js', () => {
         'Sarah Hucklebee',
         'bobby ridge'
       ];
+
+    it('uses the Array map method', () => {
+      let spy = sinon.spy(Array.prototype, 'map');
+      nameToAttributes(drivers);
+      expect(
+        spy.calledOnce,
+        'map was not called in nameToAttributes()'
+      ).to.equal(true);
+    });
+
+
 
       expect(nameToAttributes(drivers)).to.eql([
         { firstName: 'Bobby', lastName: 'Smith' },
@@ -85,17 +87,10 @@ describe('index.js', () => {
 
   describe('attributesToPhrase()', () => {
     after(() => {
-      Array.prototype.map.restore();
+      // Array.prototype.map.restore();
     });
 
-    it('uses the Array map method', () => {
-      let spy = sinon.spy(Array.prototype, 'map');
-      attributesToPhrase(drivers);
-      expect(
-        spy.calledOnce,
-        'map was not called in attributesToPhrase()'
-      ).to.equal(true);
-    });
+
 
     it('converts to list saying the name and where each individual is from', () => {
       const drivers = [
@@ -105,6 +100,15 @@ describe('index.js', () => {
         { name: 'Annette', hometown: 'Los Angeles' },
         { name: 'Bobby', hometown: 'Tampa Bay' }
       ];
+
+    it('uses the Array map method', () => {
+      let spy = sinon.spy(Array.prototype, 'map');
+      attributesToPhrase(drivers);
+      expect(
+        spy.calledOnce,
+        'map was not called in attributesToPhrase()'
+      ).to.equal(true);
+    });
 
       expect(attributesToPhrase(drivers)).to.eql([
         'Bobby is from Pittsburgh',
